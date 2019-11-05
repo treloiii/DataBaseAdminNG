@@ -1,0 +1,20 @@
+<div class="table table-responsive">
+    <table class="table table-sm table-borderless table-hover">
+        <thead>
+          <tr >
+            <th *ngFor="let key of tableKeys" scope="col">{{key}}</th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr *ngFor="let row of tableRows;let i=index">
+            
+            <th *ngFor="let th of row;let i1=index trackBy:trackByFn" scope="row">
+            <input type="text" (blur)="testblur()" [(ngModel)]="tableRows[i][i1]" [readonly]="readonly[i][i1]? true:false">
+            </th>
+            <th><button class="btn btn-outline-primary btn-sm" (click)="redactRow(i)" >Редактировать</button></th>
+            <th><button class="btn btn-outline-success btn-sm" (click)="confirmRow(i)" [disabled]="disabledAccept?true:false">Принять</button></th>
+            <th><button class="btn btn-outline-danger btn-sm" (click)="deleteRow(i)" >Удалить</button></th>
+          </tr>
+        </tbody>
+      </table>
+</div>

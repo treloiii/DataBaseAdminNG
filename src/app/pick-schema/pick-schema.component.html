@@ -1,0 +1,16 @@
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand">Add schema</a>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" [(ngModel)]="schemaName" [ngModelOptions]="{standalone: true}" placeholder="Schema name" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="addSchema()">Добавить</button>
+    </form>
+  </nav>
+<div class="container-main">
+    <div>
+      <h1 class="main-h1">Pick Schema</h1>     
+    </div>
+   
+    <ul *ngFor="let schema of schemas" class="list-group">
+      <li class="list-group-item schema" [routerLink]="['/main', schema]" routerLinkActive="active">{{schema}}</li>
+    </ul>
+  </div>

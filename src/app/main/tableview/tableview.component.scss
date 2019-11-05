@@ -1,0 +1,20 @@
+th{
+    width: 80px;
+    //border:1px solid black;   
+}
+table{
+    border: 2px solid white;
+}
+input{
+    border: 2px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.table::-webkit-scrollbar { width: 6px; height: 6px;}
+.table::-webkit-scrollbar-button {  background-color: #fff;visibility: hidden; }
+.table::-webkit-scrollbar-track {  background-color: #999;}
+.table::-webkit-scrollbar-track-piece { background-color: #ffffff;}
+.table::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px;}
+.table::-webkit-scrollbar-corner { background-color: #999;}
+.table::-webkit-resizer { background-color: #666;}

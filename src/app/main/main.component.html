@@ -1,0 +1,101 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">MyDbAdminLogo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#" (click)="toSchemas()">Back to schemas <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link not-text" data-toggle="dropdown" (click)="openSql()">SQL Query</a>
+        </li>
+      </ul>
+    </div>
+    <button class="btn btn-outline-primary" (click)="logout()">Выйти</button>
+</nav>
+<div [ngClass]="{margened:visible}">
+  <div class="inside-sql">
+    <form>
+      <textarea class="form-control" placeholder="Your SQL here"  required></textarea>
+      <button class="btn btn-outline-success">Принять</button>
+    </form>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+      <div class="left-content sticky-top">
+      
+      <div class="tables">
+        <div class="container">
+          <div class="row">
+           <h1>Tables</h1>
+           <button class="btn btn-outline-primary btn-sm btn b-reload" (click)="reload()">↺</button>
+          </div>
+          
+        </div>
+        
+        <div class="right-nav">
+            <ul *ngFor="let table of tables" class="list-group">
+                <li (click)="click(table)" class="list-group-item nav-item left">{{table}}</li>
+            </ul>
+        </div>
+      </div>
+      <div class="actions">
+          <!-- <div class="btn-group-vertical">
+              <div class="btn-toolbar mb-3"><p>Добавить таблицу</p><button type="button" class="btn btn-secondary">+</button></div>
+          </div> -->
+          <div class="container"><hr/>
+              <div class="row">
+                <div class="col-10">
+                  <div class="label">
+                  Добавить таблицу
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="bu">
+                    <button class="btn btn-outline-success btn-sm" (click)="openAdd()">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="row next-action">
+                  <div class="col-10">
+                      <div class="label">
+                      Добавить поля
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="bu">
+                        <button class="btn btn-outline-success btn-sm" (click)="openInsert()">+</button>
+                      </div>
+                    </div>
+                </div>
+                <div class="row next-action">
+                    <div class="col-10">
+                        <div class="label">
+                        Удалить таблицу
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="bu">
+                          <button class="btn btn-outline-danger btn-sm" (click)="deleteTable()">X</button>
+                        </div>
+                      </div>
+                  </div>
+          </div>
+      </div>
+    </div>
+  
+  <div class="right-content col-sm-9">
+    <h1>Schema: {{name}}</h1>
+    <h1 *ngIf="clickedTable!==undefined">Table: {{clickedTable}}</h1>
+    <div *ngIf="clickedTable===undefined" class="table-view">
+      <h1 class="pick-table">Выберите таблицу в панели слева</h1>
+    </div>
+    <div *ngIf="clickedTable!==undefined" class="table-view">
+        <app-tableview [name]="name" [clickedTable]="clickedTable"></app-tableview>
+      </div>
+  </div>
+</div>
+</div>

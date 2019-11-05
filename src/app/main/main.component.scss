@@ -1,0 +1,119 @@
+$content-top-margin:0.4rem;
+$color-green:rgb(5, 158, 5);
+@mixin text-none-select {
+    -ms-user-select:none;
+    -moz-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-select:none; 
+}
+
+.not-text{
+    @include text-none-select();
+}
+.inside-sql{
+    margin:5% 5% 5% 5%;
+    textarea{
+        height: 200px;
+    }
+    button{
+        margin-top:10px;
+        margin-left: 93%;
+    }
+}
+.margened{
+    display: none;
+}
+.back{
+    width: fit-content;
+    height: fit-content;
+    margin-top: 15px;
+    margin-left: 50px;
+}
+.button-left{
+    display: inline-block;
+}
+.pick-table{
+    text-align: center;
+    margin-top: 20%;
+}
+.right-nav{
+    
+    
+    width: fit-content;
+    height: 50vh;
+    overflow: auto;
+    // border:1px solid #666;
+    // border-radius: 10px;;
+}
+.left{
+    height: fit-content;
+    font-size: 11px;
+    width: 220px;
+    @include text-none-select;
+}
+.left:hover{
+    height: fit-content;
+    font-size: 11px;
+    width: 220px;
+    background:$color-green;
+    color: white;
+}
+.left-content{
+    margin-top:$content-top-margin;
+    margin-left: 1rem;
+    width: 250px;
+    border: 1px solid black;
+    border-radius:10px;
+    height: 90vh;
+    padding: 15px 0px 0px 15px;
+}
+hr{
+    height: 1px;
+    background: black;
+}
+.container{
+    // margin-left:0!important;
+    // margin-right: 0!important;
+}
+.next-action{
+    margin-top: 15px;
+}
+.label{
+    width: fit-content;
+    margin-right: 15px;
+}
+.b-reload{
+    height: fit-content;
+    margin-top: 15px;
+    margin-left: 78px;
+}
+.bu{
+    width: fit-content;
+    position: absolute;
+    left:-20px;
+}
+.sticky-top{
+    top:2.3em;
+}
+
+.right-content{
+   // width: 50%;
+    margin-top:$content-top-margin;
+    margin-left:2rem;
+    //background: red;
+}
+.table{
+    margin-top: 37%;
+}
+.table-view{
+    //margin-top:7%;
+   // background: red;
+}
+
+.right-nav::-webkit-scrollbar { width: 3px; height: 3px;}
+.right-nav::-webkit-scrollbar-button {  background-color: #fff;visibility: hidden; }
+.right-nav::-webkit-scrollbar-track {  background-color: #999;}
+.right-nav::-webkit-scrollbar-track-piece { background-color: #ffffff;}
+.right-nav::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px;}
+.right-nav::-webkit-scrollbar-corner { background-color: #999;}
+.right-nav::-webkit-resizer { background-color: #666;}

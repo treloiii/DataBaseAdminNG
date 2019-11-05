@@ -1,0 +1,49 @@
+<div class="modal-header">
+    <h4 class="modal-title">Creating table</h4>
+    <input type="text" class="form-control table-name" [(ngModel)]="table_name" placeholder="Table name" [ngModelOptions]="{standalone: true}">
+    <button type="button" class="btn btn-outline-danger" (click)="activeModal.dismiss('x')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+      <form>
+          <div *ngFor="let field of fields;let i=index" class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" [(ngModel)]="fields[i].name" placeholder="Name" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="col">
+                <div class="btn-group  dropBtn">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      {{field.type}}
+                    </button>
+                    <div class="dropdown-menu">
+                      <p *ngFor="let type of types" class="type-val" (click)="setValue(type,i)">{{type}}</p>
+                    </div>
+                  </div>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" [(ngModel)]="fields[i].length_val"  placeholder="Length/Value" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    <input class="form-check-input checkbx" type="checkbox" id="defaultCheck1" [(ngModel)]="fields[i].isPrimaryKey" [ngModelOptions]="{standalone: true}">
+                    <label class="form-check-label lbl" for="defaultCheck1">
+                      Primary Key
+                    </label>
+                  </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    <input class="form-check-input checkbx" type="checkbox" id="defaultCheck1" [(ngModel)]="fields[i].isAutoIncriment" [ngModelOptions]="{standalone: true}">
+                    <label class="form-check-label lbl" for="defaultCheck1">
+                      AI
+                    </label>
+                  </div>
+            </div>
+          </div>
+        </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-danger" (click)="showRows()">Create</button>
+    <button type="button" class="btn btn-outline-success" (click)="addField()">Add Field</button>
+</div>
